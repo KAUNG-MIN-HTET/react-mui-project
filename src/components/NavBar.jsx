@@ -15,7 +15,7 @@ import CodeIcon from "@mui/icons-material/Code";
 import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 
-function NavBar() {
+function NavBar({draw, setDraw}) {
     const [open, setOpen] = useState(false);
 
   const StyledToolbar = styled(Toolbar)({
@@ -58,7 +58,7 @@ function NavBar() {
         >
           Kenny Dev
         </Typography>
-        <CodeIcon color="white" sx={{ display: { xs: "block", sm: "none" } }} />
+        <CodeIcon color="white" sx={{ display: { xs: "block", sm: "none" }, cursor: "pointer" }} onClick={() => setDraw(true)} />
         <Search>
           <InputBase placeholder="Search..." sx={{ input: { color: 'black' } }} />
         </Search>

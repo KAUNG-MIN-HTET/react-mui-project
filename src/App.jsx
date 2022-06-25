@@ -7,13 +7,15 @@ import Box from "@mui/material/Box";
 import { createTheme, Stack } from "@mui/material";
 import Add from "./components/Add";
 import { ThemeProvider } from "@mui/material";
+import DrawSide from "./components/DrawSide";
 
 function App() {
   const [mode, setMode] = useState("light");
+  const [draw, setDraw] = useState(false);
   const darkTheme = createTheme({
     palette: {
       primary: {
-        main: "#A084CF",
+        main: "#FF5D5D",
         light: "skyblue",
       },
       secondary: {
@@ -28,9 +30,10 @@ function App() {
   return (
     <React.Fragment>
       <ThemeProvider theme={darkTheme}>
+        <DrawSide draw={draw} setDraw={setDraw} mode={mode} setMode={setMode} />
         <Box bgcolor={"background.default"} color={"text.primary"}>
           {/* navbar */}
-          <NavBar />
+          <NavBar draw={draw} setDraw={setDraw} />
           <Stack
             direction="row"
             spacing={{ xs: 0, sm: 2 }}
